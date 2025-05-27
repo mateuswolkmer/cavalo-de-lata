@@ -12,12 +12,14 @@ export const PageCollection: Collection = {
   },
   fields: [
     {
-      name: 'seoTitle',
+      name: 'title',
+      label: 'Título',
       type: 'string',
       required: true,
     },
     {
       name: 'body',
+      label: 'Corpo',
       type: 'rich-text',
       isBody: true,
       required: true,

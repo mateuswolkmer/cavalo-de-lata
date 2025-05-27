@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { type FC } from 'react';
 import * as Icons from 'react-icons/tb';
 
-type Props = {
+export type IconProps = {
   iconName: string;
 };
 
-const ReactIcon = ({ iconName }: Props) => {
+export const Icon: FC<IconProps> = ({ iconName }) => {
   const Icon = Icons[iconName as keyof typeof Icons];
 
   if (!Icon) {
@@ -14,5 +14,3 @@ const ReactIcon = ({ iconName }: Props) => {
 
   return <Icon size={32} />;
 };
-
-export default ReactIcon;

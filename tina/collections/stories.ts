@@ -1,47 +1,42 @@
 import type { Collection } from 'tinacms';
 
-export const BlogCollection: Collection = {
-  name: 'blog',
-  label: 'Blogs',
-  path: 'src/content/blog',
+export const StoriesCollection: Collection = {
+  name: 'stories',
+  label: 'Histórias',
+  path: 'src/content/stories',
   format: 'mdx',
   ui: {
     router({ document }) {
-      return `/blog/${document._sys.filename}`;
+      return `/stories/${document._sys.filename}`;
     },
   },
   fields: [
     {
       type: 'string',
       name: 'title',
-      label: 'Title',
+      label: 'Título',
       isTitle: true,
       required: true,
     },
     {
-      name: 'description',
-      label: 'Description',
-      type: 'string',
-    },
-    {
       name: 'pubDate',
-      label: 'Publication Date',
+      label: 'Data de publicação',
       type: 'datetime',
     },
     {
       name: 'updatedDate',
-      label: 'Updated Date',
+      label: 'Data de atualização',
       type: 'datetime',
     },
     {
       name: 'heroImage',
-      label: 'Hero Image',
+      label: 'Imagem de destaque',
       type: 'image',
     },
     {
       type: 'rich-text',
       name: 'body',
-      label: 'Body',
+      label: 'Corpo',
       isBody: true,
     },
   ],

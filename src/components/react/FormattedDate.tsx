@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { type FC } from 'react';
 
-function FormattedDate({ date }: { date: string }) {
-  const _date = new Date(date);
+export type FormattedDateProps = {
+  date?: number | string | Date | null;
+};
+
+export const FormattedDate: FC<FormattedDateProps> = ({ date: propDate }) => {
+  if (!propDate) return null;
+
+  const _date = new Date(propDate);
+
   return (
     <time dateTime={_date.toISOString()}>
       {_date.toLocaleDateString('en-us', {
@@ -11,6 +18,4 @@ function FormattedDate({ date }: { date: string }) {
       })}
     </time>
   );
-}
-
-export default FormattedDate;
+};

@@ -1,12 +1,12 @@
 import { defineCollection, z } from 'astro:content';
 import client from '../tina/__generated__/client';
 
-const blog = defineCollection({
+const stories = defineCollection({
   loader: async () => {
-    const postsResponse = await client.queries.blogConnection();
+    const postsResponse = await client.queries.storiesConnection();
 
     // Map Tina posts to the correct format for Astro
-    return postsResponse.data.blogConnection.edges
+    return postsResponse.data.storiesConnection.edges
       ?.filter((post) => !!post)
       .map((post) => {
         const node = post?.node;
@@ -61,4 +61,5 @@ const page = defineCollection({
     body: z.any(),
   }),
 });
-export const collections = { blog, page };
+
+export const collections = { stories, page };

@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactIcon from './icon';
+import React, { type FC } from 'react';
+import { Icon } from './icon';
 
-type LinkProps = {
+export type LinkProps = {
   title: string;
   link: string;
   icon: string;
 };
-function IconLink({ title, link, icon }: LinkProps) {
+
+export const IconLink: FC<LinkProps> = ({ title, link, icon }) => {
   return (
     <a
       href={link}
@@ -15,9 +16,7 @@ function IconLink({ title, link, icon }: LinkProps) {
       rel="noreferrer"
     >
       <span className="sr-only">{title}</span>
-      <ReactIcon iconName={icon} />
+      <Icon iconName={icon} />
     </a>
   );
-}
-
-export default IconLink;
+};
