@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import * as tb from 'react-icons/tb';
 import { wrapFieldsWithMeta } from 'tinacms';
 
-const IconComponent = wrapFieldsWithMeta((props) => {
+const IconComponent = wrapFieldsWithMeta(props => {
   const [searchQuery, setSearchQuery] = useState('');
   const [containerWidth, setContainerWidth] = useState(0);
   const iconName = props.input.value as unknown as keyof typeof tb;
@@ -13,13 +13,13 @@ const IconComponent = wrapFieldsWithMeta((props) => {
 
   const parentRef = useRef<HTMLDivElement>(null);
 
-  const filteredIcons = Object.keys(tb).filter((iconKey) =>
-    iconKey.toLowerCase().includes(searchQuery.toLowerCase()),
+  const filteredIcons = Object.keys(tb).filter(iconKey =>
+    iconKey.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const itemsPerRow = Math.max(
     1,
-    Math.floor((containerWidth + gapSize) / (iconSize + gapSize)),
+    Math.floor((containerWidth + gapSize) / (iconSize + gapSize))
   );
 
   const totalRows = Math.ceil(filteredIcons.length / itemsPerRow);
@@ -58,7 +58,7 @@ const IconComponent = wrapFieldsWithMeta((props) => {
           type="text"
           placeholder="Search icons..."
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={e => setSearchQuery(e.target.value)}
           style={{
             width: '100%',
             padding: '8px',
@@ -85,11 +85,11 @@ const IconComponent = wrapFieldsWithMeta((props) => {
             position: 'relative',
           }}
         >
-          {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+          {rowVirtualizer.getVirtualItems().map(virtualRow => {
             const startIndex = virtualRow.index * itemsPerRow;
             const endIndex = Math.min(
               startIndex + itemsPerRow,
-              filteredIcons.length,
+              filteredIcons.length
             );
 
             return (
@@ -103,7 +103,7 @@ const IconComponent = wrapFieldsWithMeta((props) => {
                   gap: `${gapSize}px`,
                 }}
               >
-                {filteredIcons.slice(startIndex, endIndex).map((iconKey) => {
+                {filteredIcons.slice(startIndex, endIndex).map(iconKey => {
                   const Icon = tb[iconKey as keyof typeof tb];
                   const isSelected = iconKey === iconName;
                   return (

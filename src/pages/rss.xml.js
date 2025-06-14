@@ -8,7 +8,7 @@ export async function GET(context) {
     title: config.seo.title,
     description: config.seo.description,
     site: context.site,
-    items: posts.map((post) => ({
+    items: posts.map(post => ({
       ...post.data,
       link: `/blog/${post.id}/`,
     })),

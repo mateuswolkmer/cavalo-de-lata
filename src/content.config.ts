@@ -7,8 +7,8 @@ const stories = defineCollection({
 
     // Map Tina posts to the correct format for Astro
     return postsResponse.data.storiesConnection.edges
-      ?.filter((post) => !!post)
-      .map((post) => {
+      ?.filter(post => !!post)
+      .map(post => {
         const node = post?.node;
 
         return {
@@ -39,8 +39,8 @@ const page = defineCollection({
 
     // Map Tina posts to the correct format for Astro
     return postsResponse.data.pageConnection.edges
-      ?.filter((p) => !!p)
-      .map((p) => {
+      ?.filter(p => !!p)
+      .map(p => {
         const node = p?.node;
 
         return {

@@ -45,7 +45,7 @@ export const GlobalConfigCollection: Collection = {
       type: 'object',
       list: true,
       ui: {
-        itemProps: (item) => {
+        itemProps: item => {
           return {
             label: item.title,
           };
@@ -72,7 +72,7 @@ export const GlobalConfigCollection: Collection = {
       type: 'object',
       list: true,
       ui: {
-        itemProps: (item) => {
+        itemProps: item => {
           return {
             label: item.title,
           };
