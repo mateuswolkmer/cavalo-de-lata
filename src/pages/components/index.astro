@@ -1,0 +1,23 @@
+---
+import Button from '../../components/ui/Button.astro';
+import Link from '../../components/ui/Link.astro';
+import BaseHead from '../../layouts/BaseHead.astro';
+---
+
+<html lang="pt-br">
+  <head>
+    <BaseHead noIndex />
+  </head>
+  <main class="flex flex-col gap-10 m-4">
+    <section class="flex gap-4">
+      <small>Buttons</small>
+      <Button>Regular</Button>
+    </section>
+    <section class="flex gap-4">
+      <small>Links</small>
+      <Link href="/components">Active</Link>
+      <Link href="/#">Inactive</Link>
+    </section>
+  </main>
+  <body> </body>
+</html>

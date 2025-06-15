@@ -1,7 +1,7 @@
 import React from 'react';
 import { tinaField, useTina } from 'tinacms/dist/react';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
-import { FormattedDate } from '../../src/components/react/FormattedDate.tsx';
+import { FormattedDate } from '../components/react/FormattedDate.tsx';
 import type {
   StoriesQuery,
   StoriesQueryVariables,

@@ -1,8 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import client from '../../../tina/__generated__/client';
-import AdminBlogPost from '../../../tina/pages/AdminBlogPost';
-import BlogPost from '../../layouts/BlogPost.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('stories');
@@ -23,6 +22,6 @@ const { getTinaProps } = Astro.props;
 const tinaProps = await getTinaProps();
 ---
 
-<BlogPost {...tinaProps}>
-  <AdminBlogPost {...tinaProps} client:tina />
-</BlogPost>
+<BaseLayout>
+  <!-- <StoryPost {...tinaProps} client:tina /> -->
+</BaseLayout>

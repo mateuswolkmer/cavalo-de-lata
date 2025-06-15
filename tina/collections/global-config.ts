@@ -27,16 +27,6 @@ export const GlobalConfigCollection: Collection = {
           type: 'string',
           required: true,
         },
-        {
-          name: 'siteOwner',
-          label: 'Your Name, Company Name (Used in the footer',
-          required: true,
-          type: 'string',
-          ui: {
-            defaultValue: 'Your name here',
-          },
-        },
-        // Add more settings here...
       ],
     },
     {
@@ -100,7 +90,5 @@ export const GlobalConfigCollection: Collection = {
         },
       ],
     },
-
-    // Add other config fields here...
   ],
 };

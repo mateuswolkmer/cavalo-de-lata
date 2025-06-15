@@ -1,21 +1,20 @@
 {
   "seo": {
     "title": "Astro Blog + Tina",
-    "description": "Welcome to my website!",
-    "siteOwner": "Your name here"
+    "description": "Welcome to my website!"
   },
   "nav": [
     {
-      "title": "Home",
-      "link": "/"
+      "title": "Sobre a ONG",
+      "link": "/sobre"
     },
     {
-      "title": "Blog",
-      "link": "/blog"
+      "title": "Na mídia",
+      "link": "/midia"
     },
     {
-      "title": "About",
-      "link": "/about"
+      "title": "Contato",
+      "link": "/sobre#contato"
     }
   ],
   "contactLinks": [

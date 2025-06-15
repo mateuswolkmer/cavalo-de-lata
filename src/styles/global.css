@@ -1,1 +1,25 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-dark: #382e2c; /* marrom */
+  --color-light: #fdf8e6; /* claro */
+  --color-primary: #29472d; /* verde escuro */
+  --color-primary-light: #7dbd82; /* verde claro */
+  --color-secondary: #ffca05; /* amarelo escuro */
+  --color-secondary-light: #fde901; /* amarelo claro */
+  --color-accent: #b16bb4; /* roxo */
+  --color-accent-light: #be9fbf; /* lilás */
+  /* + rosa */
+
+  --font-sans: 'Poppins', sans-serif;
+  --font-hand: 'Caveat Variable', cursive;
+}
+
+@layer base {
+  * {
+    font-weight: 500;
+  }
+  .font-hand {
+    font-weight: 400;
+  }
+}

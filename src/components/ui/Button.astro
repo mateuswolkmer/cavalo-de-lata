@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'button'> & {
+  // highlight?: boolean;
+};
+const { class: className, ...props } = Astro.props;
+---
+
+<button
+  class:list={[
+    'cursor-pointer bg-secondary-light py-2 px-4 font-bold rounded text-dark border-2 border-dark whitespace-nowrap transition-all duration-50 origin-bottom shadow-[0_2px_0_var(--color-dark)]',
+    'active:scale-95 active:shadow-[0_0_0_var(--color-dark),_inset_0_2px_4px_color-mix(in_srgb,_var(--color-dark)_30%,_transparent)]',
+    className,
+  ]}
+  {...props}
+>
+  <slot />
+</button>
