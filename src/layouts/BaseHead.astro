@@ -8,6 +8,7 @@ import '@fontsource/poppins/800.css';
 import '@fontsource-variable/caveat';
 
 import { ClientRouter } from 'astro:transitions';
+import SquigglyFilters from '../assets/images/skribbles/SquigglyFilters.astro';
 
 interface Props {
   title?: string;
@@ -56,3 +57,5 @@ const {
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <ClientRouter />
+
+<SquigglyFilters />

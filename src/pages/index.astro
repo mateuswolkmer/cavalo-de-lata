@@ -1,8 +1,22 @@
 ---
-import Hero from '../components/sections/Hero';
+import { getImage } from 'astro:assets';
+import HeroSection from '../components/sections/HeroSection';
+import MiniAboutSection from '../components/sections/MiniAboutSection';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+import HeroImage from '../assets/images/aerials/full.png';
+import AnaImage from '../assets/images/cards/ana.png';
+import YellowHouseImage from '../assets/images/cards/yellow_house.png';
+
+const heroImage = await getImage({ src: HeroImage });
+const miniAboutImage1 = await getImage({ src: AnaImage });
+const miniAboutImage2 = await getImage({ src: YellowHouseImage });
 ---
 
 <BaseLayout>
-  <Hero />
+  <HeroSection backgroundImageSrc={heroImage.src} />
+  <MiniAboutSection
+    polaroidImages={[miniAboutImage1.src, miniAboutImage2.src]}
+    client:visible
+  />
 </BaseLayout>

@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-dark: #382e2c; /* marrom */
   --color-light: #fdf8e6; /* claro */
@@ -13,13 +15,36 @@
 
   --font-sans: 'Poppins', sans-serif;
   --font-hand: 'Caveat Variable', cursive;
+
+  --animate-squiggly: squiggly 0.5s linear infinite;
+
+  @keyframes squiggly {
+    0% {
+      filter: url('#squiggly-0');
+    }
+    25% {
+      filter: url('#squiggly-1');
+    }
+    50% {
+      filter: url('#squiggly-2');
+    }
+    75% {
+      filter: url('#squiggly-3');
+    }
+    100% {
+      filter: url('#squiggly-4');
+    }
+  }
 }
 
 @layer base {
-  * {
-    font-weight: 500;
+  body {
+    @apply text-2xl font-medium;
   }
   .font-hand {
     font-weight: 400;
+  }
+  .dark {
+    @apply text-light;
   }
 }

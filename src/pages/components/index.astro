@@ -1,7 +1,19 @@
 ---
-import Button from '../../components/ui/Button.astro';
-import Link from '../../components/ui/Link.astro';
 import BaseHead from '../../layouts/BaseHead.astro';
+import { Button } from '../../components/react/ui/Button';
+import { Link } from '../../components/react/ui/Link';
+import { Polaroid } from '../../components/react/ui/Polaroid';
+import { PolaroidStack } from '../../components/react/ui/PolaroidStack';
+
+import PolaroidImage from '../../assets/images/cards/yellow_house.png';
+import { getImage } from 'astro:assets';
+
+const polaroidImage = await getImage({ src: PolaroidImage });
+const polaroidImages = [
+  polaroidImage.src,
+  polaroidImage.src,
+  polaroidImage.src,
+];
 ---
 
 <html lang="pt-br">
@@ -10,13 +22,26 @@ import BaseHead from '../../layouts/BaseHead.astro';
   </head>
   <main class="flex flex-col gap-10 m-4">
     <section class="flex gap-4">
-      <small>Buttons</small>
+      <small>Button</small>
       <Button>Regular</Button>
+      <Button color="accent">Accent</Button>
     </section>
     <section class="flex gap-4">
-      <small>Links</small>
+      <small>Link</small>
       <Link href="/components">Active</Link>
       <Link href="/#">Inactive</Link>
+    </section>
+    <section class="flex gap-4">
+      <small>Polaroid</small>
+      <Polaroid src={polaroidImage.src} client:visible>Polaroid</Polaroid>
+    </section>
+    <section class="flex gap-4">
+      <small>PolaroidStack</small>
+      <PolaroidStack
+        images={polaroidImages}
+        positionsOptions={{ minDistance: 10, maxDistance: 50 }}
+        client:visible
+      />
     </section>
   </main>
   <body> </body>

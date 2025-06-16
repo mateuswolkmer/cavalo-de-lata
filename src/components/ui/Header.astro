@@ -1,13 +1,13 @@
 ---
 import config from '../../content/config/config.json';
-import Link from './Link.astro';
-import Button from './Button.astro';
 import LogoFullSvg from '../../assets/images/logos/logo_full.svg';
+import { Button } from '../react/ui/Button';
+import { Link } from '../react/ui/Link';
 ---
 
-<header class="mt-4 mx-10">
+<header class="fixed top-0 w-full z-50">
   <nav
-    class="w-full bg-primary rounded-xl flex flex-row text-light items-center justify-between px-6 py-2"
+    class="mt-4 mx-10 bg-primary rounded-xl flex flex-row text-light items-center justify-between px-6 py-2"
   >
     <div class="flex gap-10">
       <a href="/"><LogoFullSvg /></a>
