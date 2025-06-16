@@ -1,16 +1,28 @@
 ---
 import { getImage } from 'astro:assets';
-import HeroSection from '../components/sections/HeroSection';
-import MiniAboutSection from '../components/sections/MiniAboutSection';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { ActionsSection } from '../components/sections/ActionsSection';
+import { ExperiencesSection } from '../components/sections/ExperiencesSection';
+import { HeroSection } from '../components/sections/HeroSection';
+import { MiniAboutSection } from '../components/sections/MiniAboutSection';
+import { EmergencySection } from '../components/sections/EmergencySection';
+import { PartnersSection } from '../components/sections/PartnersSection';
 
 import HeroImage from '../assets/images/aerials/full.png';
 import AnaImage from '../assets/images/cards/ana.png';
+import Kids1Image from '../assets/images/cards/kids1.png';
+import Kids2Image from '../assets/images/cards/kids2.png';
+import Kids3Image from '../assets/images/cards/kids3.png';
 import YellowHouseImage from '../assets/images/cards/yellow_house.png';
-
 const heroImage = await getImage({ src: HeroImage });
+
 const miniAboutImage1 = await getImage({ src: AnaImage });
 const miniAboutImage2 = await getImage({ src: YellowHouseImage });
+
+const experiencesImage1 = await getImage({ src: Kids1Image });
+const experiencesImage2 = await getImage({ src: Kids2Image });
+const experiencesImage3 = await getImage({ src: Kids3Image });
 ---
 
 <BaseLayout>
@@ -19,4 +31,14 @@ const miniAboutImage2 = await getImage({ src: YellowHouseImage });
     polaroidImages={[miniAboutImage1.src, miniAboutImage2.src]}
     client:visible
   />
+  <ExperiencesSection
+    images={{
+      big: experiencesImage1.src,
+      small: [experiencesImage2.src, experiencesImage3.src],
+    }}
+    client:visible
+  />
+  <ActionsSection client:visible />
+  <EmergencySection client:visible />
+  <PartnersSection client:visible />
 </BaseLayout>

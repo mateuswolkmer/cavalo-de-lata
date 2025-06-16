@@ -1,24 +1,26 @@
-import React, { type FC } from 'react';
-import { Button } from '../react/ui/Button';
-import { generateRandomPositions } from '../../utils/animations';
+import { motion } from 'motion/react';
+import { type FC } from 'react';
 import HeartSvg from '../../assets/images/skribbles/heart.svg';
 import SunSvg from '../../assets/images/skribbles/sun.svg';
 import WheatSvg from '../../assets/images/skribbles/wheat.svg';
+import { generateRandomPositions } from '../../utils/animations';
+import { Button } from '../react/ui/Button';
 import { PolaroidStack } from '../react/ui/PolaroidStack';
-import { motion } from 'motion/react';
 
 export type MiniAboutSectionProps = {
   polaroidImages: string[];
 };
 
-const MiniAboutSection: FC<MiniAboutSectionProps> = ({ polaroidImages }) => {
+export const MiniAboutSection: FC<MiniAboutSectionProps> = ({
+  polaroidImages,
+}) => {
   const skribblePositions = generateRandomPositions(3, {
     minDistance: 300,
     maxDistance: 350,
   });
 
   return (
-    <section className="my-96 mx-20 grid grid-cols-2">
+    <section className="my-40 mx-20 grid grid-cols-2">
       <div className="grid place-items-center">
         <PolaroidStack
           images={polaroidImages}
@@ -56,7 +58,7 @@ const MiniAboutSection: FC<MiniAboutSectionProps> = ({ polaroidImages }) => {
             e pessoas envolvidas no Vale do Rio Pardo.
           </p>
         </div>
-        <div className="bg-accent-light rounded-lg p-8 grid grid-cols-3 mt-10 relative">
+        <div className="bg-accent-light border-2 border-dark rounded-lg p-8 grid grid-cols-3 mt-10 relative">
           <span className="absolute -top-8 -left-10 font-hand text-4xl -rotate-6">
             impacto em números
           </span>
@@ -84,5 +86,3 @@ const MiniAboutSection: FC<MiniAboutSectionProps> = ({ polaroidImages }) => {
     </section>
   );
 };
-
-export default MiniAboutSection;

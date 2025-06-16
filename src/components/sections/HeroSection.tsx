@@ -28,5 +28,3 @@ export const HeroSection: FC<HeroSectionProps> = ({ backgroundImageSrc }) => {
     </section>
   );
 };
-
-export default HeroSection;
