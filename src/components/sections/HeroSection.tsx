@@ -9,7 +9,7 @@ export type HeroSectionProps = {
 export const HeroSection: FC<HeroSectionProps> = ({ backgroundImageSrc }) => {
   return (
     <section
-      className="w-full h-[1000px] place-items-center grid dark relative"
+      className="w-full h-[1000px] place-items-center grid dark relative bg-cover"
       style={{ backgroundImage: `url(${backgroundImageSrc})` }}
     >
       <div className="bg-gradient-to-t from-dark to-transparent absolute inset-0" />

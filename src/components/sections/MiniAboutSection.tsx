@@ -6,6 +6,7 @@ import WheatSvg from '../../assets/images/skribbles/wheat.svg';
 import { generateRandomPositions } from '../../utils/animations';
 import { Button } from '../react/ui/Button';
 import { PolaroidStack } from '../react/ui/PolaroidStack';
+import { PageSection } from './PageSection';
 
 export type MiniAboutSectionProps = {
   polaroidImages: string[];
@@ -20,7 +21,7 @@ export const MiniAboutSection: FC<MiniAboutSectionProps> = ({
   });
 
   return (
-    <section className="my-40 mx-20 grid grid-cols-2">
+    <PageSection className="grid grid-cols-2">
       <div className="grid place-items-center">
         <PolaroidStack
           images={polaroidImages}
@@ -45,7 +46,7 @@ export const MiniAboutSection: FC<MiniAboutSectionProps> = ({
         ))}
       </div>
       <div className="flex flex-col gap-8">
-        <h2 className="text-5xl">Sobre a ONG</h2>
+        <h2 className="text-5xl font-extrabold">Sobre a ONG</h2>
         <div className="flex flex-col gap-4">
           <p>
             Fundada em 2017, em Santa Cruz do Sul, a ONG Cavalo de Lata resgata
@@ -83,6 +84,6 @@ export const MiniAboutSection: FC<MiniAboutSectionProps> = ({
           </Button>
         </div>
       </div>
-    </section>
+    </PageSection>
   );
 };

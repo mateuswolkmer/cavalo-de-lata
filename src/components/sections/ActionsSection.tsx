@@ -5,24 +5,24 @@ import DonationsImage from '../../assets/images/cards/actions/donations.png';
 import NfcImage from '../../assets/images/cards/actions/nfc.png';
 import CapsImage from '../../assets/images/cards/actions/caps.png';
 import VolunteerImage from '../../assets/images/cards/actions/volunteer.png';
+import { PageSection } from './PageSection';
 
 export type ActionsSectionProps = {};
 
 export const ActionsSection: FC<ActionsSectionProps> = () => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col items-center gap-8 w-full">
       <img
         src={MountainsDividerSvg.src}
         alt=""
         className="w-full -mt-40 -mb-10"
       />
-      <section className="pb-40 px-20 bg-primary-light flex flex-col gap-8">
-        <div className="flex flex-col gap-4 items-center text-center text-primary">
-          <h2 className="font-extrabold text-5xl">
-            Você pode fazer a diferença
-          </h2>
-          <h3>Veja as maneiras de contribuir!</h3>
-        </div>
+      <PageSection
+        title="Você pode fazer a diferença"
+        subtitle="Veja as maneiras de contribuir!"
+        className="pt-0"
+        wrapperProps={{ className: 'bg-primary-light' }}
+      >
         <div className="grid grid-cols-4 gap-6">
           {[
             {
@@ -72,7 +72,7 @@ export const ActionsSection: FC<ActionsSectionProps> = () => {
             </div>
           ))}
         </div>
-      </section>
+      </PageSection>
     </div>
   );
 };

@@ -16,6 +16,8 @@
   --font-sans: 'Poppins', sans-serif;
   --font-hand: 'Caveat Variable', cursive;
 
+  --spacing-page: 1680px;
+
   --animate-squiggly: squiggly 0.5s linear infinite;
 
   @keyframes squiggly {
@@ -38,6 +40,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply text-2xl font-medium;
   }
