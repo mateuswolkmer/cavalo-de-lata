@@ -20,29 +20,28 @@ const polaroidImages = [
   <head>
     <BaseHead noIndex />
   </head>
-  <main class="flex flex-col gap-10 m-4">
-    <section class="flex gap-4">
-      <small>Button</small>
+  <main class="grid grid-cols-[auto_1fr] place-items-start gap-20 m-4">
+    <small>Button</small>
+    <div class="flex flex-row gap-4">
       <Button>Regular</Button>
       <Button color="accent">Accent</Button>
-    </section>
-    <section class="flex gap-4">
-      <small>Link</small>
-      <Link href="/components">Active</Link>
+    </div>
+
+    <small>Link</small>
+    <div class="flex flex-row gap-4">
+      <Link href="/components" currentPath="/components">Active</Link>
       <Link href="/#">Inactive</Link>
-    </section>
-    <section class="flex gap-4">
-      <small>Polaroid</small>
-      <Polaroid src={polaroidImage.src} client:visible>Polaroid</Polaroid>
-    </section>
-    <section class="flex gap-4">
-      <small>PolaroidStack</small>
-      <PolaroidStack
-        images={polaroidImages}
-        positionsOptions={{ minDistance: 10, maxDistance: 50 }}
-        client:visible
-      />
-    </section>
+    </div>
+
+    <small>Polaroid</small>
+    <Polaroid src={polaroidImage.src} client:visible>Polaroid</Polaroid>
+
+    <small>PolaroidStack</small>
+    <PolaroidStack
+      images={polaroidImages}
+      positionsOptions={{ minDistance: 10, maxDistance: 50 }}
+      client:visible
+    />
   </main>
   <body> </body>
 </html>
