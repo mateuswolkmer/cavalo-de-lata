@@ -23,12 +23,8 @@ const currentPath = Astro.url.pathname;
           <h2 class="col-span-2 uppercase font-bold">Menu</h2>
           <Link currentPath={currentPath} href="/">Home</Link>
           <Link currentPath={currentPath} href="/#emergencia">Contato</Link>
-          <Link currentPath={currentPath} href="/" className="text-red-500"
-            >Sobre a ONG</Link
-          >
-          <Link currentPath={currentPath} href="/" className="text-red-500"
-            >Na mídia</Link
-          >
+          <Link currentPath={currentPath} href="/sobre">Sobre a ONG</Link>
+          <Link currentPath={currentPath} href="/midia">Na mídia</Link>
           <Link currentPath={currentPath} href="/#emergencia" highlight
             >Solicitar resgate</Link
           >

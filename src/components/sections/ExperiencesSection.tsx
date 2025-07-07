@@ -6,7 +6,7 @@ import { PageSection } from './PageSection';
 export type ExperiencesSectionProps = {
   images: {
     big: string;
-    small: string[];
+    small: [string, string];
   };
 };
 

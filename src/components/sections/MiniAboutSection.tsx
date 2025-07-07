@@ -46,8 +46,8 @@ export const MiniAboutSection: FC<MiniAboutSectionProps> = ({
         ))}
       </div>
       <div className="flex flex-col gap-8">
-        <h2 className="text-5xl font-extrabold">Sobre a ONG</h2>
-        <div className="flex flex-col gap-4">
+        <h2 className="text-5xl font-extrabold">Sobre</h2>
+        <div className="flex flex-col gap-6">
           <p>
             Fundada em 2017, em Santa Cruz do Sul, a ONG Cavalo de Lata resgata
             cavalos vítimas de maus-tratos e promove educação ambiental,

@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LakeImg from '../assets/images/aerials/lake.png';
+import { FullAboutSection } from '../components/sections/FullAboutSection';
+import AnaImage from '../assets/images/cards/ana.png';
+import YellowHouseImage from '../assets/images/cards/yellow_house.png';
+import HorseImage from '../assets/images/cards/horse.png';
+import { getImage } from 'astro:assets';
+import { WhatMovesSection } from '../components/sections/WhatMovesSection';
+import { RescuesCalloutSection } from '../components/sections/RescuesCalloutSection';
+import { WhereSection } from '../components/sections/WhereSection';
+import { ActionsSection } from '../components/sections/ActionsSection';
+
+// FIXME get actual images
+const miniAboutImage1 = await getImage({ src: AnaImage });
+const miniAboutImage2 = await getImage({ src: YellowHouseImage });
+
+const firstPolaroidImages = [miniAboutImage1.src, miniAboutImage2.src];
+const secondPolaroidImages = [miniAboutImage1.src, miniAboutImage2.src];
+
+const horseImage = await getImage({ src: HorseImage });
+---
+
+<BaseLayout
+  heading="Conheça nossa história, missão e o trabalho que transforma vidas"
+  subheading="Sobre a Cavalo de Lata"
+  accent="Por um futuro melhor!"
+  className="pt-60"
+>
+  <Image
+    src={LakeImg}
+    alt="Cavalos próximos ao lago"
+    height={520}
+    class="w-full h-auto max-w-wide"
+  />
+  <FullAboutSection
+    firstPolaroidImages={firstPolaroidImages}
+    secondPolaroidImages={secondPolaroidImages}
+    client:visible
+  />
+  <WhatMovesSection mainImage={horseImage.src} />
+  <RescuesCalloutSection
+    images={{
+      big: horseImage.src,
+      small: [horseImage.src, horseImage.src],
+    }}
+  />
+  <WhereSection />
+  <ActionsSection withDivider={false} title="Faça parte dessa história!" />
+</BaseLayout>

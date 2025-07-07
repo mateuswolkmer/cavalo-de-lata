@@ -7,21 +7,31 @@ import CapsImage from '../../assets/images/cards/actions/caps.png';
 import VolunteerImage from '../../assets/images/cards/actions/volunteer.png';
 import { PageSection } from './PageSection';
 
-export type ActionsSectionProps = {};
+export type ActionsSectionProps = {
+  withDivider?: boolean;
+  title?: string;
+};
 
-export const ActionsSection: FC<ActionsSectionProps> = () => {
+export const ActionsSection: FC<ActionsSectionProps> = ({
+  withDivider = true,
+  title = 'Você pode fazer a diferença',
+}) => {
   return (
     <div className="flex flex-col items-center gap-8 w-full">
-      <img
-        src={MountainsDividerSvg.src}
-        alt=""
-        className="w-full -mt-40 -mb-10"
-      />
+      {withDivider && (
+        <img
+          src={MountainsDividerSvg.src}
+          alt=""
+          className="w-full -mt-40 -mb-10"
+        />
+      )}
       <PageSection
-        title="Você pode fazer a diferença"
+        title={title}
         subtitle="Veja as maneiras de contribuir!"
-        className="pt-0"
-        wrapperProps={{ className: 'bg-primary-light' }}
+        {...(withDivider && {
+          className: 'pt-0',
+          wrapperProps: { className: 'bg-primary-light' },
+        })}
       >
         <div className="grid grid-cols-4 gap-6">
           {[
