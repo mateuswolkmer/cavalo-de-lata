@@ -1,19 +1,65 @@
 ---
-import config from '../../content/config/config.json';
-import { IconLink } from '../react/IconLink';
+import LogoStackedSvg from '../../assets/images/logos/logo_stacked.svg';
+import { Link } from '../react/ui/Link';
+import { Facebook } from '../react/icons/Facebook';
+import { Instagram } from '../react/icons/Instagram';
+import { YouTube } from '../react/icons/YouTube';
+// import { WhatsApp } from '../react/icons/WhatsApp';
 
 const today = new Date();
+const currentPath = Astro.url.pathname;
 ---
 
-<footer class="text-center w-full my-20">
-  Footer
-  <!-- &copy; {today.getFullYear()}
-  {config.seo.siteOwner}. All rights reserved.
-  <div class="social-links">
-    {
-      config?.contactLinks?.map(link => {
-        return <IconLink {...link} />;
-      })
-    }
-  </div> -->
-</footer>
+<header
+  class="w-full m-auto z-50 flex flex-col gap-6 justify-center pb-4 px-20 max-w-page"
+>
+  <div class="">
+    <nav
+      class="flex flex-row text-light items-center justify-between p-4 shadow-md bg-primary rounded-xl"
+    >
+      <div class="flex gap-10 items-center">
+        <a href="/" class="px-10 py-4"><LogoStackedSvg height={230} /></a>
+        <div class="grid grid-cols-[auto_auto] gap-6 place-items-start">
+          <h2 class="col-span-2 uppercase font-bold">Menu</h2>
+          <Link currentPath={currentPath} href="/">Home</Link>
+          <Link currentPath={currentPath} href="/#emergencia">Contato</Link>
+          <Link currentPath={currentPath} href="/" className="text-red-500"
+            >Sobre a ONG</Link
+          >
+          <Link currentPath={currentPath} href="/" className="text-red-500"
+            >Na mídia</Link
+          >
+          <Link currentPath={currentPath} href="/#emergencia" highlight
+            >Solicitar resgate</Link
+          >
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="flex justify-between items-center">
+    <div class="flex gap-4">
+      <a
+        href="https://www.facebook.com/CavaloLata"
+        target="_blank"
+        class="p-2 bg-primary text-light rounded-xl"
+      >
+        <Facebook />
+      </a>
+      <a
+        href="https://www.instagram.com/cavalodelata"
+        target="_blank"
+        class="p-2 bg-primary text-light rounded-xl"
+      >
+        <Instagram />
+      </a>
+      <a
+        href="https://www.youtube.com/@CavalodeLata"
+        target="_blank"
+        class="p-2 bg-primary text-light rounded-xl"
+      >
+        <YouTube />
+      </a>
+    </div>
+    <small class="text-primary">© Cavalo de Lata, {today.getFullYear()}</small>
+  </div>
+</header>
