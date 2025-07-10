@@ -1,90 +1,230 @@
-This is a [Tina CMS](https://tina.io/) starter project.
+# Cavalo de Lata
 
-# Astro + TinaCMS Starter Kit: Blog
+> Um projeto moderno de blog construído com Astro + TinaCMS
 
-```sh
-npx create-tina-app@latest --template tina-astro-starter
+![NPM](https://img.shields.io/npm/l/cavalo-de-lata)
+![Node](https://img.shields.io/node/v/cavalo-de-lata)
+![Version](https://img.shields.io/npm/v/cavalo-de-lata)
+
+### Tópicos
+
+🔹 [Sobre o projeto](#-sobre-o-projeto)
+
+🔹 [Funcionalidades](#️-funcionalidades)
+
+🔹 [Deploy da Aplicação](#-deploy-da-aplicação)
+
+🔹 [Pré-requisitos](#-pré-requisitos)
+
+🔹 [Como rodar a aplicação](#-como-rodar-a-aplicação)
+
+🔹 [Estrutura do projeto](#-estrutura-do-projeto)
+
+🔹 [Tecnologias utilizadas](#-tecnologias-utilizadas)
+
+🔹 [Como contribuir](#-como-contribuir)
+
+🔹 [Licença](#-licença)
+
+## � Sobre o projeto
+
+O **Cavalo de Lata** é um projeto de blog moderno desenvolvido com Astro e TinaCMS, oferecendo uma experiência de edição visual intuitiva e performance otimizada. Este projeto combina a velocidade do Astro com a flexibilidade do TinaCMS para criar um sistema de gerenciamento de conteúdo eficiente.
+
+---
+
+## ⚙️ Funcionalidades
+
+✅ **Suporte a Markdown & MDX** com componentes TinaCMS
+
+✅ **Coleções TinaCMS** (Páginas, Blogs, Configurações)
+
+✅ **Edição Visual** usando Custom Loaders e Client Directives
+
+✅ **Performance 100/100** no Lighthouse
+
+✅ **View transitions** habilitadas
+
+✅ **SEO-friendly** com URLs canônicas e dados OpenGraph
+
+✅ **Suporte a Sitemap**
+
+✅ **Feed RSS** integrado
+
+✅ **Estilização mínima** (personalizável)
+
+---
+
+## 🚀 Deploy da Aplicação
+
+> 🔗 [Link do deploy da aplicação](#) *(adicionar quando disponível)*
+
+Para acessar a aplicação em produção, visite o link acima.
+
+---
+
+## 📋 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+⚠️ **Node.js** versão 18 ou superior
+
+⚠️ **npm**, **yarn** ou **pnpm** instalado
+
+⚠️ **Git** para controle de versão
+
+---
+
+## � Como rodar a aplicação
+
+Para executar este projeto localmente, siga os passos abaixo:
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/seu-usuario/cavalo-de-lata.git
+cd cavalo-de-lata
 ```
 
-And start editing with TinaCMS at `/admin`!
+### 2. Instale as dependências
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+```
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+### 3. Execute em modo de desenvolvimento
 
-Features:
+```bash
+npm run dev
+# ou
+yarn dev
+# ou
+pnpm dev
+```
 
-- ✅ Markdown & MDX support + TinaCMS Markdown Component
-- ✅ TinaCMS Collections (Pages, Blogs, Config)
-- ✅ Visual Editing using Custom Loaders and Client Directives (requires React)
-- ✅ 100/100 Lighthouse performance
-- ✅ View transitions are enabled
-- ✅ Minimal styling (make it your own!)
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
+A aplicação estará rodando em: `http://localhost:4321`
 
-## 🚀 Project Structure
+Para acessar o painel administrativo do TinaCMS: `http://localhost:4321/admin`
 
-Inside of your project, you'll see the following folders and files:
+### 4. Build para produção
 
-```text
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## 🏗️ Estrutura do projeto
+
+```
 ├── README.md
 ├── astro-tina-directive/
 ├── astro.config.mjs
 ├── package.json
-├── pnpm-lock.yaml
 ├── public/
-├── src
-│   ├── components
-│   ├── content
-│   ├── content.config.ts
-│   ├── layouts
-│   ├── pages
-│   └── styles
-├── tina
-│   ├── collections
-│   ├── components
-│   ├── config.ts
-│   ├── pages
-│   └── tina-lock.json
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── content.config.ts
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+├── tina/
+│   ├── collections/
+│   ├── components/
+│   ├── config.ts
+│   ├── pages/
+│   └── tina-lock.json
 └── tsconfig.json
 ```
 
-Each page is exposed as a route based on its file name which are generated from the content under `src/content/` (excluding the `config` folder).
+### Principais diretórios:
 
-To enable Visual Editing with TinaCMS we have had to use React components and a new `client:tina` Directive. Which is the code located under `astro-tina-directive`.
+- **`src/`**: Código fonte da aplicação
+- **`tina/`**: Configurações e componentes do TinaCMS
+- **`public/`**: Arquivos estáticos
+- **`astro-tina-directive/`**: Directive customizada para integração com TinaCMS
 
-Under the `tina/` folder we have, `collections/` which holds our TinaCMS schema definitions. Under `components/` we have a custom Icon Component that is used within the TinaCMS UI. Under `pages/` we have the "wrappers" that make the Visual Editing work, using the `useTina` hook.
+---
 
-The `pages/index.astro` is the "Home" page - This is a special case and has been setup to look for the `content/page/home.mdx` file.
+## 🛠 Tecnologias utilizadas
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### **Frontend**
+- **Astro** ^5.5.2
+- **React** ^18.3.1
+- **TailwindCSS** ^4.1.7
+- **Motion** ^12.18.1
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+### **CMS**
+- **TinaCMS** ^2.7.3
 
-> [!NOTE]
-> To use `getCollection()` we need to add a schema in `content.config.ts` with a custom loader that uses the correct TinaCMS Collection.
+### **Ferramentas**
+- **TypeScript**
+- **ESLint**
+- **Prettier**
 
-Any static assets, like images, can be placed in the `public/` directory.
+### **Dependências principais:**
 
-## 🧞 Commands
+| Tecnologia | Versão | Descrição |
+|------------|--------|-----------|
+| Astro | ^5.5.2 | Framework web moderno |
+| React | ^18.3.1 | Biblioteca para interfaces |
+| TinaCMS | ^2.7.3 | Sistema de gestão de conteúdo |
+| TailwindCSS | ^4.1.7 | Framework CSS utilitário |
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📫 Como contribuir
 
-## 👀 Want to learn more?
+Para contribuir com **Cavalo de Lata**, siga estas etapas:
 
-Check out the [TinaCMS documentation](https://tina.io/docs) and the [Astro documentation](https://docs.astro.build) or jump into our [TinaCMS Discord server](https://discord.gg/cG2UNREu).
+1. 🍴 Faça um fork do projeto
+2. 🌟 Crie uma branch para sua feature: `git checkout -b feature/nova-feature`
+3. 💾 Commit suas alterações: `git commit -m 'feat: adiciona nova feature'`
+4. 📤 Push para a branch: `git push origin feature/nova-feature`
+5. 🔃 Abra um Pull Request
 
-## Credit
+Como alternativa, consulte a documentação do GitHub sobre [como criar um pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+---
+
+## 📝 Scripts disponíveis
+
+| Comando | Ação |
+|---------|------|
+| `npm run dev` | Inicia servidor de desenvolvimento com TinaCMS |
+| `npm run build` | Build da aplicação para produção |
+| `npm run preview` | Preview do build local |
+| `npm run lint` | Executa o linter no código |
+| `npm run format` | Formata o código com Prettier |
+
+---
+
+## � Documentação adicional
+
+- 📖 [Documentação do Astro](https://docs.astro.build)
+- 📖 [Documentação do TinaCMS](https://tina.io/docs)
+- 💬 [Discord do TinaCMS](https://discord.gg/cG2UNREu)
+
+---
+
+## 👨‍💻 Autor
+
+Feito com ❤️ por **[Seu Nome]**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-perfil)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/seu-usuario)
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+**💡 Dica:** Este projeto é baseado no [Astro + TinaCMS Starter Kit](https://github.com/tinacms/tina-astro-starter), mas com melhorias e personalizações próprias.
