@@ -1,90 +1,115 @@
-This is a [Tina CMS](https://tina.io/) starter project.
+# Cavalo de Lata
 
-# Astro + TinaCMS Starter Kit: Blog
+<div align="center">
+  <img src="https://img.shields.io/badge/Made%20with-Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white" alt="Made with Astro"/>
+  <img src="https://img.shields.io/badge/Content-TinaCMS-00A3E0?style=for-the-badge&logo=tina&logoColor=white" alt="TinaCMS"/>
+  <img src="https://img.shields.io/badge/Styling-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS"/>
+  <img src="https://img.shields.io/badge/Package%20Manager-Bun-000000?style=for-the-badge&logo=bun&logoColor=white" alt="Bun"/>
+</div>
 
-```sh
-npx create-tina-app@latest --template tina-astro-starter
+Cavalo de Lata is a non-profit organization (ONG) dedicated to rescuing, rehabilitating, and providing care for horses that have been victims of mistreatment and abandonment in Santa Cruz do Sul, RS, Brazil. Founded in 2017 by Ana Paula Knak and Jason Duani Vargas, the organization has become a reference in horse rescue, rehabilitation, and environmental education.
+
+## Tech Stack
+
+- [Astro](https://astro.build/) (main framework)
+- [React](https://react.dev/) for interactive components
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [TinaCMS](https://tina.io/) for content management
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vercel](https://vercel.com/) for deployment
+- [Bun](https://bun.sh/) for package management and scripts
+- [Motion](https://motion.dev/) for animations
+
+## Content Management
+
+Content is managed by [TinaCMS](https://tina.io/). You can access the content management interface at [`/admin`](http://localhost:4321/admin) when running the project locally.
+
+## Getting Started
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone https://github.com/your-org/cavalo-de-lata.git
+   cd cavalo-de-lata
+   ```
+
+2. **Install dependencies:**
+
+   ```sh
+   bun install
+   ```
+
+3. **Set up environment variables:**
+   Create a `.env` file in the root with the following (see below for details):
+
+   ```env
+   PUBLIC_TINA_CLIENT_ID=your_tina_client_id
+   TINA_TOKEN=your_tina_token
+   TINA_SEARCH_TOKEN=your_tina_search_token
+   ```
+
+4. **Run the development server:**
+
+   ```sh
+   bun run dev
+   ```
+
+   The site will be available at [http://localhost:4321](http://localhost:4321).
+
+   You can access the TinaCMS admin at [http://localhost:4321/admin](http://localhost:4321/admin).
+
+5. **Build for production:**
+   ```sh
+   bun run build
+   ```
+
+## Environment Variables
+
+- `PUBLIC_TINA_CLIENT_ID`: TinaCMS client ID
+- `TINA_TOKEN`: TinaCMS token
+- `TINA_SEARCH_TOKEN`: TinaCMS search indexer token
+
+## Project Structure
+
 ```
-
-And start editing with TinaCMS at `/admin`!
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
-
-Features:
-
-- ✅ Markdown & MDX support + TinaCMS Markdown Component
-- ✅ TinaCMS Collections (Pages, Blogs, Config)
-- ✅ Visual Editing using Custom Loaders and Client Directives (requires React)
-- ✅ 100/100 Lighthouse performance
-- ✅ View transitions are enabled
-- ✅ Minimal styling (make it your own!)
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-
-## 🚀 Project Structure
-
-Inside of your project, you'll see the following folders and files:
-
-```text
-├── README.md
-├── astro-tina-directive/
-├── astro.config.mjs
+/
+├── public/           # Static assets (images, icons, fonts, etc.)
+├── src/
+│   ├── assets/       # Images, icons, and visual assets
+│   ├── components/   # UI and page components (Astro, React)
+│   │   ├── pages/    # Page-specific components
+│   │   ├── react/    # React components
+│   │   ├── sections/ # Page sections
+│   │   └── ui/       # Reusable UI components
+│   ├── content/      # Markdown content and configuration
+│   ├── layouts/      # Layout components
+│   ├── pages/        # Astro pages and routes
+│   ├── styles/       # Global styles and TailwindCSS
+│   └── utils/        # Utility functions
+├── tina/             # TinaCMS configuration
+│   ├── collections/  # Content schema definitions
+│   ├── components/   # TinaCMS UI components
+│   └── config.ts     # TinaCMS configuration
 ├── package.json
-├── pnpm-lock.yaml
-├── public/
-├── src
-│   ├── components
-│   ├── content
-│   ├── content.config.ts
-│   ├── layouts
-│   ├── pages
-│   └── styles
-├── tina
-│   ├── collections
-│   ├── components
-│   ├── config.ts
-│   ├── pages
-│   └── tina-lock.json
-└── tsconfig.json
+└── astro.config.mjs
 ```
 
-Each page is exposed as a route based on its file name which are generated from the content under `src/content/` (excluding the `config` folder).
+## Available Scripts
 
-To enable Visual Editing with TinaCMS we have had to use React components and a new `client:tina` Directive. Which is the code located under `astro-tina-directive`.
+| Command                | Action                                       |
+| :--------------------- | :------------------------------------------- |
+| `bun install`          | Installs dependencies                        |
+| `bun run dev`          | Starts local dev server at `localhost:4321`  |
+| `bun run build`        | Build your production site to `./dist/`      |
+| `bun run preview`      | Preview your build locally, before deploying |
+| `bun run lint`         | Run ESLint to check code quality             |
+| `bun run format`       | Format code with Prettier                    |
+| `bun run format:check` | Check code formatting without making changes |
 
-Under the `tina/` folder we have, `collections/` which holds our TinaCMS schema definitions. Under `components/` we have a custom Icon Component that is used within the TinaCMS UI. Under `pages/` we have the "wrappers" that make the Visual Editing work, using the `useTina` hook.
+## Contributing
 
-The `pages/index.astro` is the "Home" page - This is a special case and has been setup to look for the `content/page/home.mdx` file.
+Pull requests and issues are welcome! Please open an issue to discuss major changes.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## License
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-> [!NOTE]
-> To use `getCollection()` we need to add a schema in `content.config.ts` with a custom loader that uses the correct TinaCMS Collection.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out the [TinaCMS documentation](https://tina.io/docs) and the [Astro documentation](https://docs.astro.build) or jump into our [TinaCMS Discord server](https://discord.gg/cG2UNREu).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+MIT
